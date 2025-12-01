@@ -1,9 +1,4 @@
-﻿
-
-using System.Diagnostics.Metrics;
-
-namespace DotNetA1Regex;
-
+﻿namespace DotNetA1Regex;
 
 internal class Utility
 {
@@ -32,8 +27,5 @@ internal class Utility
 
         return userInputs;
     }
-
-    
-    
     
 }
