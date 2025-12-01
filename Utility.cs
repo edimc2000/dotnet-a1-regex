@@ -1,4 +1,7 @@
-﻿namespace DotNetA1Regex;
+﻿
+using System.Text.RegularExpressions;
+using static DotNetA1Regex.AnsiColorCodes;
+namespace DotNetA1Regex;
 
 internal class Utility
 {
@@ -7,7 +10,6 @@ internal class Utility
 
     internal static Dictionary<string, string> Input()
     {
-        //WriteLine(divider);
         string defaultRegex = @"\d+";
         Dictionary<string, string> userInputs = new();
 
@@ -27,5 +29,20 @@ internal class Utility
 
         return userInputs;
     }
-    
+
+    internal static string MatchPattern(Regex regexPattern, string patternToTest)
+    {
+        bool result = regexPattern.IsMatch(patternToTest);
+        return result
+            ? $"{GreenOnWhite} ✅ {result} {Reset}"
+            : $"{RedOnWhite} ❌ {result} {Reset}"; 
+    }
+
+    internal static string EvaluateInputString(string patternToTest)
+    {
+        return patternToTest.Length != 0
+            ? $"{BlueOnWhite} {patternToTest} {Reset}"
+            : $"{RedOnWhite} <empty> {Reset}";
+    }
+
 }
