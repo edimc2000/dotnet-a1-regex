@@ -5,7 +5,13 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  
+	  
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="DotNetA1Regex\DotNetA1Regex.csproj" />
+  </ItemGroup>
 
 	<ItemGroup Label="To simplify use of Console methods.">
 		<Using Include="System.Console" Static="true" />
