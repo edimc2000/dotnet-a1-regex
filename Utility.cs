@@ -1,9 +1,10 @@
 ﻿
 using System.Text.RegularExpressions;
 using static DotNetA1Regex.AnsiColorCodes;
+
 namespace DotNetA1Regex;
 
-internal class Utility
+public class Utility
 {
     internal static string divider = "\n  " + new string('-', 80) + "\n";
     internal static string indent = "".PadLeft(5); 
@@ -30,7 +31,7 @@ internal class Utility
         return userInputs;
     }
 
-    internal static string MatchPattern(Regex regexPattern, string patternToTest)
+    public static string MatchPattern(Regex regexPattern, string patternToTest)
     {
         bool result = regexPattern.IsMatch(patternToTest);
         return result
@@ -38,7 +39,7 @@ internal class Utility
             : $"{RedOnWhite} ❌ {result} {Reset}"; 
     }
 
-    internal static string EvaluateInputString(string patternToTest)
+    public static string EvaluateInputString(string patternToTest)
     {
         return patternToTest.Length != 0
             ? $"{BlueOnWhite} {patternToTest} {Reset}"

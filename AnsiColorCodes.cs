@@ -6,7 +6,7 @@
 /// <para>Version: 1.2</para>
 /// <para>Since: 2025-11-29</para>
 /// </remarks>
-internal static class AnsiColorCodes
+public static class AnsiColorCodes
 {
     /// <summary>Reset colors to default</summary>
     public const string Reset = "\e[0m";

@@ -44,3 +44,12 @@ while (tryAgain)
         return; // or break
     }
 }
+
+
+//public  string MatchPattern(Regex regexPattern, string patternToTest)
+//{
+//    bool result = regexPattern.IsMatch(patternToTest);
+//    return result
+//        ? $"{GreenOnWhite} ✅ {result} {Reset}"
+//        : $"{RedOnWhite} ❌ {result} {Reset}";
+//}

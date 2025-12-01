@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="../PatternTester/PatternTester.csproj" Id="8a4de9ae-af6b-492c-9f3c-9318647f71e7" />
   <Project Path="DotNetA1Regex.csproj" />
 </Solution>
