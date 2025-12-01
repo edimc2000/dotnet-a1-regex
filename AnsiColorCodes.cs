@@ -22,4 +22,11 @@ internal static class AnsiColorCodes
 
     /// <summary>rED font and white background for general messages</summary>
     public const string RedOnWhite = "\e[48;2;255;255;255m\e[38;2;255;0;0m";
+
+
+    /// <summary> Light blue background color </summary>
+    public const string Background = "\e[48;2;26;132;184m";
+
+    /// <summary> White foreground color </summary>
+    public const string Foreground = "\e[37m";
 }

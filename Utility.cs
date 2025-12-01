@@ -1,21 +1,27 @@
-﻿namespace DotNetA1Regex;
+﻿
+
+using System.Diagnostics.Metrics;
+
+namespace DotNetA1Regex;
+
 
 internal class Utility
 {
-    internal static string divider = "\n" + new string('-', 80) + "\n";
+    internal static string divider = "\n  " + new string('-', 80) + "\n";
+    internal static string indent = "".PadLeft(5); 
 
     internal static Dictionary<string, string> Input()
     {
-        WriteLine(divider);
+        //WriteLine(divider);
         string defaultRegex = @"\d+";
         Dictionary<string, string> userInputs = new();
 
-        WriteLine("Enter a regular expression");
-        Write("  (or press ENTER to use the default)\t: ");
+        WriteLine($"{indent}Enter a regular expression pattern");
+        Write($"{indent}  (or press ENTER to use the default \"{defaultRegex}\")\t: ");
         string inputRegex = ReadLine()!.Trim();
 
         WriteLine(divider);
-        Write("Enter some input\t\t\t: ");
+        Write($"{indent}Enter text to test against pattern\t\t\t: ");
         string stringToMatch = ReadLine()!.Trim();
 
         inputRegex = inputRegex.Length == 0 ? defaultRegex : inputRegex;
@@ -26,4 +32,8 @@ internal class Utility
 
         return userInputs;
     }
+
+    
+    
+    
 }
