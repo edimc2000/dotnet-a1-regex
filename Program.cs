@@ -4,7 +4,7 @@ using static DotNetA1Regex.Utility;
 using static DotNetA1Regex.Formatting;
 
 
-bool tryAgain = true;
+const bool tryAgain = true;
 while (tryAgain)
 {
     Clear();
