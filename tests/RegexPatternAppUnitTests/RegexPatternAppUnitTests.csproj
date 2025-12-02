@@ -39,6 +39,10 @@
 		<ProjectReference Include="..\..\DotNetA1Regex.csproj" />
 	</ItemGroup>
 
+	<ItemGroup Label="To simplify use of Console methods.">
+		<Using Include="System.Console" Static="true" />
+	</ItemGroup>
+
 	<!-- TestHost should come with Microsoft.NET.Test.Sdk, but you can keep it -->
 	<ItemGroup>
 		<PackageReference Include="Microsoft.TestPlatform.TestHost" Version="18.0.1" PrivateAssets="all" />
