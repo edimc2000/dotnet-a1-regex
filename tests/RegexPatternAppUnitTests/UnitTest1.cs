@@ -1,8 +1,9 @@
 ﻿using System.Text.RegularExpressions;
-using static DotNetA1Regex.AnsiColorCodes; 
-using static DotNetA1Regex.Utility; 
+using Xunit;
+using static DotNetA1Regex.Utility;
+using static DotNetA1Regex.AnsiColorCodes;
 
-namespace RegexPatternTesterUnitTests
+namespace RegexPatternAppUnitTests
 {
     public class UnitTest1
     {
@@ -19,3 +20,4 @@ namespace RegexPatternTesterUnitTests
         }
     }
 }
+    
