@@ -47,14 +47,16 @@ and simple console formatting utilities.
 > **readme.md**
 * This documentation file.
 
+> **screenshots/**
+* Folder for screen captures and sample runs.
+
 > **.github/workflows/dotnet-test.yml**
-* GitHub Actions workflow to build and run tests on push/PR.
+* GitHub Actions workflow to build and run tests on push/PR. 
 
 **_Source files (under src/):_**
 
 > **src/AnsiColorCodes.cs**
 * ANSI color constants and small helpers for colored console output.
-
 
 > **src/Formatting.cs**
 * Console formatting helpers used to render test results and menus.
