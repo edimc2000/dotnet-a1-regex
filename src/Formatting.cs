@@ -1,10 +1,12 @@
 ﻿namespace DotNetA1Regex;
 
+
+/// Copied from my other projects, adapted for this solution. 
 /// <summary>Provides text formatting utilities for console display</summary>
 /// <remarks>
 /// <para>Author: Eddie C.</para>
-/// <para>Version: 1.0</para>
-/// <para>Since: 2025-11-24</para>
+/// <para>Version: 1.5</para>
+/// <para>Since: 2025-11-30</para>
 /// </remarks>
 internal class Formatting
 {

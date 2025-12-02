@@ -1,5 +1,6 @@
 ﻿namespace DotNetA1Regex;
 
+// Copied from my other projects, adapted for this solution. 
 /// <summary>ANSI escape codes for console coloring</summary>
 /// <remarks>
 /// <para>Author: Eddie C.</para>

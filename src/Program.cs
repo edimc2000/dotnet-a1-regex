@@ -3,53 +3,62 @@ using static DotNetA1Regex.AnsiColorCodes;
 using static DotNetA1Regex.Utility;
 using static DotNetA1Regex.Formatting;
 
+namespace DotNetA1Regex;
 
-const bool tryAgain = true;
-while (tryAgain)
+/// <summary>Main entry point for the Regex Tester application</summary>
+/// <remarks>
+/// <para>Author: Eddie C.</para>
+/// <para>Version: 2.0</para>
+/// <para>Since: 2025-12-02</para>
+/// </remarks>
+public class Program
 {
-    Clear();
-    //WriteLine(args[0]);
-    DisplayTitle("Regular Expression Tester", "all", 80);
-    WriteLine();
-    Dictionary<string, string> captureInput = Input();
-
-    try
+    public static void Main(string[] args)
     {
-        Regex patternChecker = new(captureInput["inputRegex"]);
-        string displayResult = MatchPattern(patternChecker, captureInput["stringToMatch"]);
-        string displayStringToMatch = EvaluateInputString(captureInput["stringToMatch"]); 
 
-        WriteLine();
-        DisplayTitle("", "top", 80);
-        WriteLine(PrintCenteredTitle("Result", 80));
-        DisplayTitle("", "bottom", 80);
+        bool shouldContinue = true;
+        const int ConsoleWidth = 80;
+        const string PatternKey = "pattern";
+        const string InputTextKey = "inputText";
 
-        WriteLine($"\n{indent}Pattern\t: {BlueOnWhite} {captureInput["inputRegex"]} {Reset}");
-        WriteLine($"{indent}Input\t: {displayStringToMatch}");
-        WriteLine($"\n{indent}Match\t: {displayResult}");
-    }
-    catch (Exception err)
-    {
-        WriteLine($"\n{indent}{HighlightError} There's an error with the regex pattern {Reset}");
-        WriteLine($"{indent}{HighlightError} {err.Message} {Reset}");
-    }
+        while (shouldContinue)
+        {
+            Clear();
+            DisplayTitle("Regular Expression Tester", "all", ConsoleWidth);
+            WriteLine();
+            Dictionary<string, string> userInput = Input();
 
-    WriteLine(divider);
-    Write($"{indent}Press ESC to end or any key to try again\t\t: ");
-    ConsoleKeyInfo key = ReadKey(true);
+            try
+            {
+                Regex regexPattern = new(userInput[PatternKey]);
+                string matchResult = MatchPattern(regexPattern, userInput[InputTextKey]);
+                string formattedInput = EvaluateInputString(userInput[InputTextKey]);
 
-    if (key.Key == ConsoleKey.Escape)
-    {
-        WriteLine($"\n{indent}Operation cancelled!\n\n");
-        return; // or break
+                WriteLine();
+                DisplayTitle("", "top", ConsoleWidth);
+                WriteLine(PrintCenteredTitle("Result", ConsoleWidth));
+                DisplayTitle("", "bottom", ConsoleWidth);
+
+                WriteLine($"\n{Indent}Pattern\t\t: {BlueOnWhite} {userInput[PatternKey]} {Reset}");
+                WriteLine($"{Indent}Input Text\t\t: {formattedInput}");
+                WriteLine($"\n{Indent}Match\t\t: {matchResult}");
+            }
+            catch (Exception err)
+            {
+                WriteLine($"\n{Indent}{HighlightError} Error: {err.Message} {Reset}");
+            }
+
+            WriteLine(SectionDivider);
+            Write($"{Indent}Press ESC to exit or any key to continue\t: ");
+            ConsoleKeyInfo key = ReadKey(true);
+
+            if (key.Key == ConsoleKey.Escape)
+            {
+                WriteLine($"\n{Indent}Goodbye!\n");
+                shouldContinue = false;
+            }
+        }
+
+        //WriteLine(args[0]); // For future command line support
     }
 }
-
-
-//public  string MatchPattern(Regex regexPattern, string patternToTest)
-//{
-//    bool result = regexPattern.IsMatch(patternToTest);
-//    return result
-//        ? $"{GreenOnWhite} ✅ {result} {Reset}"
-//        : $"{RedOnWhite} ❌ {result} {Reset}";
-//}
