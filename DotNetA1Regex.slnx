@@ -1,4 +1,3 @@
 <Solution>
   <Project Path="DotNetA1Regex.csproj" />
-  <Project Path="tests/RegexPatternAppUnitTests/RegexPatternAppUnitTests.csproj" />
 </Solution>

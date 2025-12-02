@@ -20,6 +20,14 @@ public class Utility
 
     /// <summary>Prompts user for regex pattern and test text.</summary>
     /// <returns>Dictionary with keys: defaultPattern, pattern, inputText.</returns>
+    /// <remarks>
+    /// The method follows this sequence:
+    /// 1. Displays default pattern (\d+) for digit matching
+    /// 2. Allows Enter key to accept default pattern
+    /// 3. Prompts for test input text
+    /// 4. Returns all values in a dictionary for consistent access
+    /// Note: Trims whitespace from both inputs automatically.
+    /// </remarks>
     internal static Dictionary<string, string> Input()
     {
         string defaultPattern = @"\d+";
