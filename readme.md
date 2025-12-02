@@ -81,6 +81,14 @@ and delegates to helper utilities.
 - No external libraries
 - ANSI-capable terminal (optional, for colors)
 
+## Usage
+
+This is a console application. Typical usage flows are implemented in `src/Program.cs` and the supporting helpers under `src/` (`Utility.cs`, `Formatting.cs`, `AnsiColorCodes.cs`). Open `src/Program.cs` to see how the program:
+
+- Accepts input and menu choices (interactive mode).
+- Uses `Utility` for input parsing, validation, and regular-expression helpers.
+- Renders results and menus with `Formatting` (and optional ANSI coloring via `AnsiColorCodes`).
+
 ## Build and Run (powershell)
 
 > Restore dependencies 
@@ -109,3 +117,14 @@ dotnet test tests/RegexPatternAppUnitTests/RegexPatternAppUnitTests.csproj --lis
 ```
 ![Available Tests](screenshots/1-list_test.png)
 
+## Usage
+
+Some session screenshots 
+
+![Matched](screenshots/3-matched.png)
+
+![not matched](screenshots/2-not_matched.png)
+
+## Contact
+
+If you have questions or need further changes, reply here or refer to the course materials.
