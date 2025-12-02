@@ -1,25 +1,47 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <IsPackable>false</IsPackable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+		<!-- Added for clarity -->
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<!-- Optional: for strict quality -->
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="coverlet.collector" Version="6.0.4" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
-    <PackageReference Include="xunit" Version="2.9.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
-  </ItemGroup>
+	<ItemGroup>
+		<!-- Core test packages -->
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+		<PackageReference Include="xunit" Version="2.9.3" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\DotNetA1Regex.csproj" />
-  </ItemGroup>
+		<!-- Code coverage -->
+		<PackageReference Include="coverlet.collector" Version="6.0.4">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.TestPlatform.TestHost" Version="18.0.1" PrivateAssets="all" />
-  </ItemGroup>
+		<!-- Reporting packages (optional but recommended) -->
+		<PackageReference Include="xunit.runner.reporters" Version="2.9.3" />
+		<PackageReference Include="XunitXml.TestLogger" Version="7.0.2" />
+
+		<!-- For better test output (optional) -->
+		<PackageReference Include="xunit.extensibility.execution" Version="2.9.3" />
+	</ItemGroup>
+
+	<!-- Main project reference -->
+	<ItemGroup>
+		<ProjectReference Include="..\..\DotNetA1Regex.csproj" />
+	</ItemGroup>
+
+	<!-- TestHost should come with Microsoft.NET.Test.Sdk, but you can keep it -->
+	<ItemGroup>
+		<PackageReference Include="Microsoft.TestPlatform.TestHost" Version="18.0.1" PrivateAssets="all" />
+	</ItemGroup>
 
 </Project>

@@ -1,34 +1,54 @@
-name: .NET Unit Tests
+name: Tests with Reports
 
-on:
-  push:
-    branches: [ master, develop ]
-  pull_request:
-    branches: [ master ]
-  workflow_dispatch:
-
-env:
-  DOTNET_VERSION: '10.0.x'  # Changed from 8.0.x to 10.0.x
+on: [push, pull_request]
 
 jobs:
   test:
-    name: Run Unit Tests
-    runs-on: windows-latest
-
+    runs-on: ubuntu-latest
+    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
+    - uses: actions/checkout@v4
+    
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
-
+        dotnet-version: '8.0.x'
+    
     - name: Restore dependencies
       run: dotnet restore
-
+    
     - name: Build
-      run: dotnet build --no-restore --configuration Release
-
-    - name: Run tests
-      run: dotnet test --no-build --configuration Release
+      run: dotnet build --configuration Release --no-restore
+    
+    - name: Run tests with multiple reports
+      run: |
+        dotnet test \
+          --configuration Release \
+          --no-build \
+          --logger "trx;LogFileName=test-results.trx" \
+          --logger "html;LogFileName=test-report.html" \
+          --logger "console;verbosity=detailed" \
+          --results-directory TestResults
+    
+    - name: Upload TRX report
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results-trx
+        path: TestResults/*.trx
+        retention-days: 30
+    
+    - name: Upload HTML report
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-report-html
+        path: TestResults/*.html
+        retention-days: 30
+    
+    - name: Publish Test Report
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: xUnit Tests
+        path: TestResults/*.trx
+        reporter: dotnet-trx
+        fail-on-error: false
