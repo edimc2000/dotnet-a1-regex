@@ -34,47 +34,46 @@ and simple console formatting utilities.
 
 
 **_Files are located at the project root (no package declared in source files):_**
+* **DotNetA1Regex.csproj**
+  * Project file for the console application (targets .NET 10).
 
-**DotNetA1Regex.csproj**
-* Project file for the console application (targets .NET 10).
+* **DotNetA1Regex.slnx**
+  * Solution file for opening the project in Visual Studio.
 
-**DotNetA1Regex.slnx**
-* Solution file for opening the project in Visual Studio.
+* **.gitignore**
+  * Repository ignore rules.
 
-**.gitignore**
-* Repository ignore rules.
+* **readme.md**
+  * This documentation file.
 
-**readme.md**
-* This documentation file.
+* **screenshots/**
+  * Folder for screen captures and sample runs.
 
-**screenshots/**
-* Folder for screen captures and sample runs.
-
-**.github/workflows/dotnet-test.yml**
-* GitHub Actions workflow to build and run tests on push/PR. 
+* **.github/workflows/dotnet-test.yml**
+  * GitHub Actions workflow to build and run tests on push/PR. 
 
 **_Source files (under src/):_**
 
-**src/AnsiColorCodes.cs**
-* ANSI color constants and small helpers for colored console output.
+* **src/AnsiColorCodes.cs**
+  * ANSI color constants and small helpers for colored console output.
 
-**src/Formatting.cs**
-* Console formatting helpers used to render test results and menus.
+* **src/Formatting.cs**
+  * Console formatting helpers used to render test results and menus.
 
-**src/Program.cs**
-* Console program entry point. Presents interactive options for testing regular-expression patterns 
+* **src/Program.cs**
+  * Console program entry point. Presents interactive options for testing regular-expression patterns 
 and delegates to helper utilities.
 
-**src/Utility.cs**
-* Miscellaneous utilities (input parsing/validation, regex helpers, small reusable functions).
+* **src/Utility.cs**
+  * Miscellaneous utilities (input parsing/validation, regex helpers, small reusable functions).
 
 **_Unit tests (under tests/RegexPatternAppUnitTests/):_**
 
-**tests/RegexPatternAppUnitTests/BasicTests.cs**
-* Unit tests covering core regex-pattern behavior and formatting utilities.
+* **tests/RegexPatternAppUnitTests/BasicTests.cs**
+  * Unit tests covering core regex-pattern behavior and formatting utilities.
 
-**tests/RegexPatternAppUnitTests/RegexPatternAppUnitTests.csproj**
-* Test project file used by the test runner.
+* **tests/RegexPatternAppUnitTests/RegexPatternAppUnitTests.csproj**
+  * Test project file used by the test runner.
 
 ## Requirements
 
